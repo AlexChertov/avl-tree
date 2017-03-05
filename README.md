@@ -50,8 +50,9 @@ template &lt;class Functor&gt; void VisitPostOrder( Functor f ) const | Applies 
 
 ## Customization by providing alternative base classes to AvlTree::Node
 The AvlTree may maintain additional information for you if you provide an alternative base class for AvlTree::Node. The kind of information that can be maintained is limited to whatever can be propagated from the leaf nodes to the root. In other words if for every node you need to maintain property X that can be calculated given property X of the left and right child nodex and whatever information is available at the current node (the value of the key) then this property can be maintained correctly by the AvlTree. When implementing such a class you are asked to implement two methods:
-1. A constructor
-2. A methods that updates the state at a given node. This method is called at appropriate times when modificatios to an AVL tree happen (rotations, deletions etc.).
+
+1. A constructor,
+2. A method that updates the state at a given node. This method is called at appropriate times when modificatios to an AVL tree happen (rotations, deletions etc.).
 
 As an example, here is an extract from AvlUtils.h. It is the code of the base class that allows maintaining the number of nodes at every sub-tree.
 
