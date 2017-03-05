@@ -385,19 +385,19 @@ public:
     }
 
     template <class Functor>
-    void VisitInOrder( Functor f )
+    void VisitInOrder( Functor f ) const
     {
         VisitInOrderImpl( f, m_root.get() );
     }
 
     template <class Functor>
-    void VisitPreOrder( Functor f )
+    void VisitPreOrder( Functor f ) const
     {
         VisitPreOrderImpl( f, m_root.get() );
     }
 
     template <class Functor>
-    void VisitPostOrder( Functor f )
+    void VisitPostOrder( Functor f ) const
     {
         VisitPostOrderImpl( f, m_root.get() );
     }
@@ -446,7 +446,7 @@ private:
     }
 
     template <class Functor>
-    void VisitInOrderImpl( Functor f, Node* p )
+    void VisitInOrderImpl( Functor f, const Node* p ) const
     {
         if(!p)
             return;
@@ -457,7 +457,7 @@ private:
     }
     
     template <class Functor>
-    void VisitPreOrderImpl( Functor f, Node* p )
+    void VisitPreOrderImpl( Functor f, const Node* p ) const
     {
         if(!p)
             return;
@@ -468,7 +468,7 @@ private:
     }
 
     template <class Functor>
-    void VisitPostOrderImpl( Functor f, Node* p )
+    void VisitPostOrderImpl( Functor f, const Node* p ) const
     {
         if(!p)
             return;
